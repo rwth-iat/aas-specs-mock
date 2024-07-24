@@ -1,0 +1,6 @@
+name: IDTA-02036
+
+title: 'Product Change Notifications for industrial product types and items in manufacturing'
+version: 'v1.0'
+
+start_page: ROOT:AsciiDoc_Product_Change_Notifications_1_0.adoc
