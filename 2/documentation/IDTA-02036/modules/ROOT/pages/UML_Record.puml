@@ -1,0 +1,122 @@
+@startuml
+!theme plain
+left to right direction
+hide class circle
+hide class methods
+skinparam classAttributeIconSize 0
+' skinparam linetype polyline
+skinparam linetype ortho
+
+mainframe  Record__0000__
+
+class "Record__0000__" as ID00000001 <<SMC>> {
+  +Manufacturer : SMC
+  +ManufacturerChangeID : xs:string [0..1]
+  +LifeCycleData : SML [0..1]
+  +ReasonsOfChange : SML
+  +ItemCategories : SML
+  +AffectedPartNumbers : SML [0..1]
+  +PcnReasonComment : MLP [0..1]
+  +PcnChangeInformation : SMC
+  +AdditionalInformations : SML [0..1]
+  +DateOfRecord : xs:string
+  +ItemOfChange : SMC
+  +RecommendedItems : SML [0..1]
+}
+
+class "Manufacturer" as ID00000002 <<SMC>> {
+  +ManufacturerName : MLP
+  +AdressInformation : SMC
+}
+
+class "AdressInformation" as ID00000003 <<SMC>> <<smt-dropin-use>> {
+}
+
+class "LifeCycleData" as ID00000004 <<SML>> {
+  +[00] Milestone__00__ : SMC [0..*]
+}
+
+class "[00] Milestone__00__" as ID00000005 <<SMC>> {
+  +MilestoneClassification : xs:string
+  +DateOfValidity : xs:string
+}
+
+class "ReasonsOfChange" as ID00000006 <<SML>> {
+  +[00] ReasonOfChange__00__ : SMC [1..*]
+}
+
+class "[00] ReasonOfChange__00__" as ID00000007 <<SMC>> {
+  +ReasonClassificationSystem : xs:string
+  +VersionOfClassificationSystem : xs:string [0..1]
+  +ReasonId : xs:string
+}
+
+class "ItemCategories" as ID00000008 <<SML>> {
+  +[00] ItemCategory__00__ : SMC [1..*]
+}
+
+class "[00] ItemCategory__00__" as ID00000009 <<SMC>> {
+  +ItemClassificationSystem : xs:string
+  +VersionOfClassificationSystem : xs:string [0..1]
+  +ItemCategory : xs:string
+}
+
+class "AffectedPartNumbers" as ID0000000A <<SML>> {
+  +[00] AffectedPartNumber__00__ : xs:string [0..*]
+}
+
+class "PcnChangeInformation" as ID0000000B <<SMC>> {
+  +ChangeTitle : MLP
+  +ChangeDetail : MLP
+}
+
+class "AdditionalInformations" as ID0000000C <<SML>> {
+  +[00] AdditionalInformation__00__ : File [0..*]
+}
+
+class "ItemOfChange" as ID0000000D <<SMC>> {
+  +ManufacturerProductFamily : MLP
+  +ManufacturerProductDesignation : MLP
+  +OrderCodeOfManufacturer : MLP [0..1]
+  +ManufacturerAssetID : Ref [0..1]
+  +ProductClassifications : SML [0..1]
+  +HardwareVersion : xs:string [0..1]
+  +RemainingAmountAvailable : xs:positiveInteger [0..1]
+  +TechnicalData_Changes : SMC [0..1]
+  +TechnicalData_CurrentState : SMC [0..1]
+}
+
+class "RecommendedItems" as ID0000000E <<SML>> {
+  +[00] RecommendedItem__00__ : SMC [0..*]
+}
+
+class "[00] RecommendedItem__00__" as ID0000000F <<SMC>> {
+  +ManufacturerProductFamily : MLP
+  +ManufacturerProductDesignation : MLP
+  +OrderCodeOfManufacturer : MLP
+  +ProductClassifications : SML [0..1]
+  +TechnicalData_Fit : SMC [0..1]
+  +TechnicalData_Form : SMC [0..1]
+  +TechnicalData_Function : SMC [0..1]
+  +TechnicalData_Other : SMC [0..1]
+  +Incotermcode : xs:string [0..1]
+  +DeliveryTimeClassOtherRegion : xs:int [0..1]
+  +DeliveryTimeClassSameRegion : xs:int [0..1]
+  +ConformityDeclarations : SMC [0..1]
+}
+
+ID00000002 *--  ID00000003 : ""
+ID00000001 *--  ID00000002 : ""
+ID00000004 *--  ID00000005 : ""
+ID00000001 *--  ID00000004 : ""
+ID00000006 *--  ID00000007 : ""
+ID00000001 *--  ID00000006 : ""
+ID00000008 *--  ID00000009 : ""
+ID00000001 *--  ID00000008 : ""
+ID00000001 *--  ID0000000A : ""
+ID00000001 *--  ID0000000B : ""
+ID00000001 *--  ID0000000C : ""
+ID00000001 *--  ID0000000D : ""
+ID0000000E *--  ID0000000F : ""
+ID00000001 *--  ID0000000E : ""
+@enduml

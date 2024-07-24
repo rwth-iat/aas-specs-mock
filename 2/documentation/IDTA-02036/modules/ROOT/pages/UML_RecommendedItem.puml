@@ -1,0 +1,63 @@
+@startuml
+!theme plain
+left to right direction
+hide class circle
+hide class methods
+skinparam classAttributeIconSize 0
+' skinparam linetype polyline
+skinparam linetype ortho
+
+mainframe  RecommendedItem__00__
+
+class "RecommendedItem__00__" as ID00000001 <<SMC>> {
+  +ManufacturerProductFamily : MLP
+  +ManufacturerProductDesignation : MLP
+  +OrderCodeOfManufacturer : MLP
+  +ProductClassifications : SML [0..1]
+  +TechnicalData_Fit : SMC [0..1]
+  +TechnicalData_Form : SMC [0..1]
+  +TechnicalData_Function : SMC [0..1]
+  +TechnicalData_Other : SMC [0..1]
+  +Incotermcode : xs:string [0..1]
+  +DeliveryTimeClassOtherRegion : xs:int [0..1]
+  +DeliveryTimeClassSameRegion : xs:int [0..1]
+  +ConformityDeclarations : SMC [0..1]
+}
+
+class "ProductClassifications" as ID00000002 <<SML>> {
+  +[00] ProductClassification__00__ : SMC [0..*]
+}
+
+class "[00] ProductClassification__00__" as ID00000003 <<SMC>> {
+  +ClassificationSystem : xs:string
+  +VersionOfClassificationSystem : xs:string
+  +ProductClassId : xs:string
+}
+
+class "TechnicalData_Fit" as ID00000004 <<SMC>> {
+  +TargetEstimate : xs:float [0..1]
+}
+
+class "TechnicalData_Form" as ID00000005 <<SMC>> {
+  +TargetEstimate : xs:float [0..1]
+}
+
+class "TechnicalData_Function" as ID00000006 <<SMC>> {
+  +TargetEstimate : xs:float [0..1]
+}
+
+class "TechnicalData_Other" as ID00000007 <<SMC>> {
+  +TargetEstimate : xs:float [0..1]
+}
+
+class "ConformityDeclarations" as ID00000008 <<SMC>> {
+}
+
+ID00000002 *--  ID00000003 : ""
+ID00000001 *--  ID00000002 : ""
+ID00000001 *--  ID00000004 : ""
+ID00000001 *--  ID00000005 : ""
+ID00000001 *--  ID00000006 : ""
+ID00000001 *--  ID00000007 : ""
+ID00000001 *--  ID00000008 : ""
+@enduml
