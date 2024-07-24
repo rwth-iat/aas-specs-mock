@@ -1,0 +1,123 @@
+@startuml
+!theme plain
+left to right direction
+hide class circle
+hide class methods
+skinparam classAttributeIconSize 0
+' skinparam linetype polyline
+skinparam linetype ortho
+
+mainframe SMT ProductChangeNotifications
+
+class "ProductChangeNotifications" as ID00000001 <<SM>> {
+}
+
+class "Records" as ID00000002 <<SML>> {
+}
+
+class "[00] Record__0000__" as ID00000003 <<SMC>> {
+}
+
+class "Manufacturer" as ID00000004 <<SMC>> {
+}
+
+class "AdressInformation" as ID00000005 <<SMC>> <<smt-dropin-use>> {
+}
+
+class "LifeCycleData" as ID00000006 <<SML>> {
+}
+
+class "[00] Milestone__00__" as ID00000007 <<SMC>> {
+}
+
+class "ReasonsOfChange" as ID00000008 <<SML>> {
+}
+
+class "[00] ReasonOfChange__00__" as ID00000009 <<SMC>> {
+}
+
+class "ItemCategories" as ID0000000A <<SML>> {
+}
+
+class "[00] ItemCategory__00__" as ID0000000B <<SMC>> {
+}
+
+class "AffectedPartNumbers" as ID0000000C <<SML>> {
+}
+
+class "PcnChangeInformation" as ID0000000D <<SMC>> {
+}
+
+class "AdditionalInformations" as ID0000000E <<SML>> {
+}
+
+class "ItemOfChange" as ID0000000F <<SMC>> {
+}
+
+class "ProductClassifications" as ID00000010 <<SML>> {
+}
+
+class "[00] ProductClassification__00__" as ID00000011 <<SMC>> {
+}
+
+class "TechnicalData_Changes" as ID00000012 <<SMC>> {
+}
+
+class "TechnicalData_CurrentState" as ID00000013 <<SMC>> {
+}
+
+class "RecommendedItems" as ID00000014 <<SML>> {
+}
+
+class "[00] RecommendedItem__00__" as ID00000015 <<SMC>> {
+}
+
+class "ProductClassifications" as ID00000016 <<SML>> {
+}
+
+class "[00] ProductClassification__00__" as ID00000017 <<SMC>> {
+}
+
+class "TechnicalData_Fit" as ID00000018 <<SMC>> {
+}
+
+class "TechnicalData_Form" as ID00000019 <<SMC>> {
+}
+
+class "TechnicalData_Function" as ID0000001A <<SMC>> {
+}
+
+class "TechnicalData_Other" as ID0000001B <<SMC>> {
+}
+
+class "ConformityDeclarations" as ID0000001C <<SMC>> {
+}
+
+ID00000004 *--  ID00000005 : ""
+ID00000003 *--  ID00000004 : ""
+ID00000006 *--  ID00000007 : ""
+ID00000003 *--  ID00000006 : ""
+ID00000008 *--  ID00000009 : ""
+ID00000003 *--  ID00000008 : ""
+ID0000000A *--  ID0000000B : ""
+ID00000003 *--  ID0000000A : ""
+ID00000003 *--  ID0000000C : ""
+ID00000003 *--  ID0000000D : ""
+ID00000003 *--  ID0000000E : ""
+ID00000010 *--  ID00000011 : ""
+ID0000000F *--  ID00000010 : ""
+ID0000000F *--  ID00000012 : ""
+ID0000000F *--  ID00000013 : ""
+ID00000003 *--  ID0000000F : ""
+ID00000016 *--  ID00000017 : ""
+ID00000015 *--  ID00000016 : ""
+ID00000015 *--  ID00000018 : ""
+ID00000015 *--  ID00000019 : ""
+ID00000015 *--  ID0000001A : ""
+ID00000015 *--  ID0000001B : ""
+ID00000015 *--  ID0000001C : ""
+ID00000014 *--  ID00000015 : ""
+ID00000003 *--  ID00000014 : ""
+ID00000002 *--  ID00000003 : ""
+ID00000001 *--  ID00000002 : ""
+@enduml
