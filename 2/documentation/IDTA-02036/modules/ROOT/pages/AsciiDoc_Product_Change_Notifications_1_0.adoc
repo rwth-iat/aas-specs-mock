@@ -1,13 +1,7 @@
-ifdef::env-pdf[]
-
-:doctype: book
-
 = IDTA 02036-1-0 : Product Change Notifications for industrial product types and items in manufacturing
 DRAFT - June 2024
 
 :title-page:
-
-endif::[]
 
 ifndef::env-pdf[]
 
@@ -329,7 +323,7 @@ The SubmodelElements described in section 3 are structured in the following way 
 
 [plantuml, UML_overview, svg, id="UML_overview", title="UML overview"]
 ----
-include::UML_overview.puml[]
+include::partial$diagrams/UML_overview.puml[]
 ----
 
 For the overall Submodel template and its instances, some notes can be given:
@@ -494,7 +488,7 @@ The following UML model shows the structure and attributes of a single PCN recor
 
 [plantuml, UML_Record, svg, id="UML_Record", title="UML for single PCN record (selected classes)"]
 ----
-include::UML_Record.puml[]
+include::partial$diagrams/UML_Record.puml[]
 ----
 
 For the record itself, the SubmodelElements are described as follows. The table convention is explained in Annex A.2.
@@ -714,7 +708,7 @@ Note: ItemOfChange and RecommendedItem\__00__ use a similar set of SubmodelEleme
 
 [plantuml, UML_ItemOfChange, svg, id="UML_ItemOfChange", title="UML for item of change"]
 ----
-include::UML_ItemOfChange.puml[]
+include::partial$diagrams/UML_ItemOfChange.puml[]
 ----
 
 For the item of change, the SubmodelElements are described as follows. The table convention is explained in Annex A.2.
@@ -893,7 +887,7 @@ Note: ItemOfChange and RecommendedItem\__00__ use a similar set of SubmodelEleme
 
 [plantuml, UML_RecommendedItem, svg, id="UML_RecommendedItem", title="UML for recommended item"]
 ----
-include::UML_RecommendedItem.puml[]
+include::partial$diagrams/UML_RecommendedItem.puml[]
 ----
 
 For the recommended items, the SubmodelElements are described as follows. The table convention is explained in Annex A.2.
