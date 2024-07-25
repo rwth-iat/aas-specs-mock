@@ -1,0 +1,70 @@
+@startuml
+!theme plain
+left to right direction
+hide class circle
+hide class methods
+skinparam classAttributeIconSize 0
+' skinparam linetype polyline
+skinparam linetype ortho
+
+mainframe  ItemOfChange
+
+class "ItemOfChange" as ID00000001 <<SMC>> {
+  +ManufacturerProductFamily : MLP
+  +ManufacturerProductDesignation : MLP
+  +OrderCodeOfManufacturer : MLP [0..1]
+  +ManufacturerAssetID : Ref [0..1]
+  +ProductClassifications : SML [0..1]
+  +HardwareVersion : xs:string [0..1]
+  +RemainingAmountAvailable : xs:positiveInteger [0..1]
+  +TechnicalData_Changes : SMC [0..1]
+  +TechnicalData_CurrentState : SMC [0..1]
+}
+
+class "ProductClassifications" as ID00000002 <<SML>> {
+  +[00] ProductClassification__00__ : SMC [0..*]
+}
+
+class "[00] ProductClassification__00__" as ID00000003 <<SMC>> {
+  +ClassificationSystem : xs:string
+  +VersionOfClassificationSystem : xs:string
+  +ProductClassId : xs:string
+}
+
+class "TechnicalData_Changes" as ID00000004 <<SMC>> {
+  +MaxOutputCurrent : SMC [0..1]
+  +Arbitrary : SMC [0..*]
+  +SingleChange : SMC [0..*]
+}
+
+class "MaxOutputCurrent" as ID00000005 <<SMC>> {
+  +NewValue : xs:string
+  +Origin_of_change : Ref
+  +ReasonId : xs:string
+}
+
+class "Arbitrary" as ID00000006 <<SMC>> {
+  +NewValue : xs:string
+  +Origin_of_change : Ref
+  +ReasonId : xs:string
+}
+
+class "SingleChange" as ID00000007 <<SMC>> {
+  +MaxOutputCurrent : xs:string
+  +Arbitrary : xs:string
+  +Origin_of_change : Ref
+  +ReasonId : xs:string
+}
+
+class "TechnicalData_CurrentState" as ID00000008 <<SMC>> {
+  +Arbitrary : xs:string [0..*]
+}
+
+ID00000002 *--  ID00000003 : ""
+ID00000001 *--  ID00000002 : ""
+ID00000004 *--  ID00000005 : ""
+ID00000004 *--  ID00000006 : ""
+ID00000004 *--  ID00000007 : ""
+ID00000001 *--  ID00000004 : ""
+ID00000001 *--  ID00000008 : ""
+@enduml
